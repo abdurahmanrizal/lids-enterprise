@@ -1,0 +1,179 @@
+.owl-prev,
+.owl-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.owl-prev {
+  left: -2rem;
+}
+
+.owl-next {
+  right: -2rem;
+}
+
+#slide-carousel .owl-prev {
+  left : 1rem !important;
+}
+
+#slide-carousel .owl-next {
+  right: 1rem !important;
+}
+.post-content {
+  font-family: Georgia,times new roman,Times,Merriweather,Cambria,Times,serif;
+  font-size: 1.125rem;
+  line-height: 1.5;
+  letter-spacing: .01rem;
+}
+.btn-primary {
+
+  border-color: white;
+
+}
+.page-section-contact {
+
+    padding: 4rem 0 !important;
+
+ }
+ .ml-life-coach {
+
+  margin-left: 1.5rem!important;
+
+ }
+ .life-coach-bullets li {
+
+    list-style: none;
+
+ }
+ .card-width {
+
+    width: 19.5rem;
+
+ }
+.morecontent span {
+	display: none;
+}
+.post-title {
+  font-size: 2.125rem;
+}
+ /* Small devices (landscape phones, 576px and up) */
+@media (max-width: 375px) {
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .owl-prev {
+    left: -1rem;
+  }
+  
+  .owl-next {
+    right: -1rem!important;
+  }
+
+  header.masthead h1 {
+    font-size: 1.75rem !important;
+  }
+
+  .card-width {
+
+    width: 18rem !important;
+  }
+  
+  .help-margin {
+
+    margin-left : 0 !important;
+
+  }
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  .owl-prev {
+    left: -1rem ;
+  }
+  
+  .owl-next {
+    right: -1rem !important;
+  }
+
+  .tag-line {
+    font-size: 9.5px!important;
+  }
+
+  .help-margin {
+
+    margin-left : 2rem !important;
+
+  }
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (max-width: 992px) {
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  } 
+  .owl-prev {
+    left: -1rem;
+  }
+  
+  .owl-next {
+    right: -1rem !important;
+  }
+  .ml-life-coach {
+
+    margin-left: 3.5rem!important;
+  
+  }
+  .tag-line {
+    font-size: 11px;
+  }
+  .help-margin {
+
+    margin-left : 0 !important;
+
+  }
+}
+@media (max-width: 1200px) {
+
+  .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .owl-prev {
+    left: -2rem;
+  }
+  
+  .owl-next {
+    right: -2rem !important ;
+  }
+
+  .ml-life-coach {
+
+    margin-left: 6.5rem!important;
+  
+   }
+   .help-margin {
+
+    margin-left : 0 !important;
+
+  }
+ 
+
+}

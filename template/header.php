@@ -9,7 +9,7 @@
   <meta name="keywords" content="Bussiness Coaching, Bussiness, Coaching, Event, EO">
   <meta name="author" content="Lids Enterprise">
 
-  <title>Lids Enterprise - Bussiness Coaching</title>
+  <title>Lids Enterprise - Business Coaching & Event</title>
 
   <!-- Font Awesome Icons -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,17 +49,49 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#services">Services</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarOurServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our services</a>
+            <div class="dropdown-menu" aria-labelledby="navbarOurServices">
+              <a class="dropdown-item d-none" href="#services">Service</a>
+              <a class="dropdown-item" href="#">Corporate Training</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Business Mentoring</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Personal Coaching</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Financial Service</a>
+              <div class="dropdown-divider"></div>
+              <!-- <div class="dropright"> -->
+                <a class="dropdown-item dropdown dropdown-toggle" href="#" id="navbarOurLifeCoach" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Life Coach Programs</a>
+                <div class="dropdown-menu" aria-labelledby="navbarOurLifeCoach">
+                  <a class="dropdown-item js-scroll-trigger" href="#">Hypnoterapy</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Quantum Self Healing</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Self Healing</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">Self Love</a>
+                </div>
+              <!-- </div> -->
+              
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link  dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Event</a>
+            <div class="dropdown-menu" aria-labelledby="navbarEvent">
+              <a class="dropdown-item js-scroll-trigger" href="#event">Coming event</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" href="#">Last event</a>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#portfolio">Gallery</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#event">Event</a>
+            <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contact</a>
+            <a class="nav-link js-scroll-trigger" href="#contact">Contact us</a>
           </li>
         </ul>
       </div>
@@ -71,12 +103,12 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center justify-content-center text-center">
         <div class="col-lg-10 align-self-end">
-          <h1 class="text-uppercase text-white font-weight-bold">Bussiness Coaching</h1>
+          <h1 class="text-uppercase text-white font-weight-bold">Event & Business Coaching</h1>
           <hr class="divider my-4">
         </div>
         <div class="col-lg-8 align-self-baseline">
-          <p class="text-white-75 font-weight-light mb-5">Start on Lids Enterprise can help you build better bussiness</p>
-          <a class="btn btn-primary btn-xl js-scroll-trigger" href="#about">Find Out More</a>
+          <h4 class="text-white-75 font-weight-light mb-3 font-weight-bold">LIDS</h4>
+          <p class="text-white-75 font-weight-light mb-5 tag-line"><span class="pr-2">Leadership</span><span class="pr-2">.</span><span class="pr-2">Interpersonal Skill</span><span class="pr-2">.</span><span class="pr-2">Develop Mindset</span><span class="pr-2">.</span><span>Self Mastery</span></p>
         </div>
       </div>
     </div>
