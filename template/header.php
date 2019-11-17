@@ -81,7 +81,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarEvent">
               <a class="dropdown-item js-scroll-trigger" href="#event">Coming event</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Last event</a>
+              <a class="dropdown-item" href="last_event.php" target="_blank">Last event</a>
             </div>
           </li>
           <li class="nav-item">

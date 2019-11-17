@@ -47,7 +47,7 @@
                 <div class="mb-5">
                     <div class="card">
                         <div class="card-body">
-                           <h5 class="card-title m-0">Artikel Terbaru</h5>
+                           <h5 class="card-title m-0">New Article</h5>
                         </div>
                         <div class="list-group list-group-flush">
                             <a class="list-group-item list-group-item-action flex-column align-items-start" href="blog.php">

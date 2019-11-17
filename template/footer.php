@@ -45,7 +45,295 @@
         }
     });
 
-     $('.owl-carousel').owlCarousel({
+    $('#slide-carousel-jan').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-feb').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-mar').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-apr').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-may').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-jun').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-jul').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-aug').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-sep').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-oct').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-nov').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+
+    $('#slide-carousel-des').owlCarousel({
+        nav:true,
+        navText: [
+            '<i class="fas fa-arrow-circle-left" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>',
+            '<i class="fas fa-arrow-circle-right" aria-hidden="true" style="color:#f4623a; font-size:20px;"></i>'
+        ],
+        dots: false,
+        margin: 10,
+        autoplay:true,
+        autoplayTimeout:3000,
+        autoplayHoverPause:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:1
+            },
+            1000:{
+                items:3
+            }
+        }
+    });
+    
+    $('.owl-carousel').owlCarousel({
         // loop:true,
         nav:true,
         // autoWidth: true,
