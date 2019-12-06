@@ -1,3 +1,4 @@
+<?include('config/connection.php');?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -49,9 +50,9 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown dropdown-service">
             <a class="nav-link dropdown-toggle" href="#" id="navbarOurServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our services</a>
-            <div class="dropdown-menu" aria-labelledby="navbarOurServices">
+            <div class="dropdown-menu dropdown-menu-service" aria-labelledby="navbarOurServices">
               <a class="dropdown-item d-none" href="#services">Service</a>
               <a class="dropdown-item" href="#">Corporate Training</a>
               <div class="dropdown-divider"></div>
@@ -60,28 +61,14 @@
               <a class="dropdown-item" href="#">Personal Coaching</a>
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Financial Service</a>
-              <div class="dropdown-divider"></div>
-              <!-- <div class="dropright"> -->
-                <a class="dropdown-item dropdown dropdown-toggle" href="#" id="navbarOurLifeCoach" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Life Coach Programs</a>
-                <div class="dropdown-menu" aria-labelledby="navbarOurLifeCoach">
-                  <a class="dropdown-item js-scroll-trigger" href="#">Hypnoterapy</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Quantum Self Healing</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Self Healing</a>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="#">Self Love</a>
-                </div>
-              <!-- </div> -->
-              
             </div>
           </li>
-          <li class="nav-item dropdown">
+          <li class="nav-item dropdown dropdown-event">
             <a class="nav-link  dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Event</a>
             <div class="dropdown-menu" aria-labelledby="navbarEvent">
               <a class="dropdown-item js-scroll-trigger" href="#event">Coming event</a>
               <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="last_event.php" target="_blank">Last event</a>
+              <a class="dropdown-item" href="last_event.php?year=<?=date('Y')?>" target="_blank">Last event</a>
             </div>
           </li>
           <li class="nav-item">
@@ -89,6 +76,33 @@
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#blog">Blog</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#our-client">Our Client</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#testimonial">Testimonial</a>
+          </li>
+          <li class="nav-item dropdown dropdown-partner">
+            <a class="nav-link dropdown-toggle" href="#" id="ourPartner" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Partner</a>
+            <div class="dropdown-menu" aria-labelledby="ourPartner">
+                <?
+                    $sqlOurPartner    = "SELECT ID,name,status FROM partner WHERE status='1'";
+                    $queryOurPartner  = mysqli_query($db, $sqlOurPartner);
+
+                    $countOurPartner  = mysqli_num_rows($queryOurPartner);
+
+                if(empty($countOurPartner)) : ?>
+                <a class="dropdown-item" href="#">Our Partner Not Found</a>
+                <? else: ?>
+                  <? while($rowPartner = mysqli_fetch_array($queryOurPartner)){ $escapeString=str_replace(' ','-', $rowPartner['name'])?>
+
+                      <a class="dropdown-item" href="partner.php?link=<?=$escapeString?>"><?= $rowPartner['name']?></a>
+                      <div class="dropdown-divider"></div>
+
+                  <? } ?>
+                <? endif;?>
+            </div>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact us</a>

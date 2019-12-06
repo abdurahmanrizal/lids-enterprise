@@ -1,5 +1,8 @@
   <!-- include template header -->
-  <? include('template/header.php'); ?>
+  <? 
+    include('template/header.php');
+    include('config/connection.php'); 
+  ?>
 
   <!-- MAIN CONTENT -->
 
@@ -84,15 +87,42 @@
     <h2 class="text-center mt-0">Events</h2>
     <hr class="divider my-4">
     <div class="container">
-      <div class="row">
-          <div class="owl-carousel owl-theme text-center">
-            <div class="item"><img src="img/portfolio/thumbnails/event-1.jpg" alt="Owl Image"></div>
-            <div class="item"><img src="img/portfolio/thumbnails/event-3.jpg" alt="Owl Image"></div>
-            <div class="item"><img src="img/portfolio/thumbnails/event-1.jpg" alt="Owl Image"></div>
-            <div class="item"><img src="img/portfolio/thumbnails/event-3.jpg" alt="Owl Image"></div>
-            <div class="item"><img src="img/portfolio/thumbnails/event-1.jpg" alt="Owl Image"></div>
+      <div class='row'>
+        <? 
+            $sqlEvents   = "SELECT url_img_event FROM events WHERE YEAR(date) = date('Y') AND status='1'";
+            $queryEvents = mysqli_query($db,$sqlEvents);
+
+            $numberEvents = mysqli_num_rows($queryEvents);
+        if(empty($numberEvents)):?>
+          <div class="alert alert-warning mx-auto" role="alert">
+              No Events for this months
           </div>
-      </div> 
+        <?elseif($numberEvents == 1) :?>
+          <div class="col-lg-12 col-md-12 col-12">
+            <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
+              <img class="img-fluid d-block mx-auto" src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image" width="300" height="auto">
+            <? } ?>
+          </div>
+        <? elseif($numberEvents == 2) : ?>
+          <div class="owl-carousel owl-theme d-block mx-auto" id="event-2">
+            <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
+                <div class="item"><img class="img-fluid d-block mx-auto" src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+            <? } ?>
+          </div>
+        <? elseif($numberEvents == 3) : ?>
+          <div class="owl-carousel owl-theme d-block mx-auto" id="event-3">
+            <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
+                <div class="item"><img src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+            <? } ?>
+          </div>
+        <? else : ?>
+          <div class="owl-carousel owl-theme text-center" id="event-4">
+            <? while($rowEvents = mysqli_fetch_array($queryEvents)) {?>
+              <div class="item"><img src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+            <? }?>
+          </div>
+        <? endif;?>
+      </div>
     </div>
   </section>
   <br>
@@ -102,84 +132,31 @@
   <section id="portfolio">
     <div class="container-fluid p-0">
       <div class="row no-gutters">
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-1.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-1.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
+        <?
+            $sqlGallery     = "SELECT project_name, url_img_gallery FROM gallery WHERE status='1'";
+            $queryGallery   = mysqli_query($db,$sqlGallery);
+            $count_gallery  = mysqli_num_rows($queryGallery);
+        if(empty($count_gallery)) :?>
+          <div class="alert alert-warning mx-auto" role="alert">
+              No gallery uploaded
+          </div>
+        <? else : ?>
+          <? while($rowGallery = mysqli_fetch_array($queryGallery)){?>
+            <div class="col-lg-4 col-sm-6">
+              <a class="portfolio-box" href="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>">
+                <img class="img-fluid" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>" alt="photos gallery">
+                <div class="portfolio-box-caption">
+                  <div class="project-category text-white-50">
+                    Category
+                  </div>
+                  <div class="project-name">
+                    <?= strtoupper($rowGallery['project_name']) ?>
+                  </div>
+                </div>
+              </a>
             </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-2.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-2.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-3.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-3.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-4.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-4.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-5.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-5.jpg" alt="">
-            <div class="portfolio-box-caption">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
-        <div class="col-lg-4 col-sm-6">
-          <a class="portfolio-box" href="img/portfolio/fullsize/web-6.jpg">
-            <img class="img-fluid" src="img/portfolio/thumbnails/web-6.jpg" alt="">
-            <div class="portfolio-box-caption p-3">
-              <div class="project-category text-white-50">
-                Category
-              </div>
-              <div class="project-name">
-                Project Name
-              </div>
-            </div>
-          </a>
-        </div>
+          <?}?>
+          <? endif;?>
       </div>
     </div>
   </section>
@@ -198,72 +175,237 @@
       </div>
     </div>
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
+      <div class="row justify-content-center">
+          <? 
+              $sqlArticle        = "SELECT * FROM blog WHERE status='1'";
+              $queryArticle      = mysqli_query($db,$sqlArticle);
 
-        </div>
-        <div class="col-lg-4 col-md-6 mb-2 ml-3 help-margin">
-            <!-- Card -->
-            <div class="card shadow card-width">
-
-              <!-- Card content -->
-              <div class="card-body d-flex flex-row">
-
-               
-                <!-- Content -->
-                <div>
-
-                  <!-- Title -->
-                  <h5 class="card-title font-weight-bold mb-2"><a href="blog.php" style="color:black;" target="_blank">Happiness is When We Can Inspire More People ...</a></h5>
-                  <!-- Subtitle -->
-                  <span class="card-text" style="color: grey; font-size: 13px;"><i class="fas fa-user pr-2"></i> Admin</span>
-                  <span class="card-text ml-2" style="color: grey; font-size: 13px;"><i class="far fa-calendar-alt pr-2"></i>12/11/2019</span>
-
-                </div>
-
-              </div>
-
-              <!-- Card image -->
-              <div class="view overlay">
-                <img class="card-img-top rounded-0" src="img/blog/blog-1.jpeg" alt="Card image cap">
-                <a href="#!">
-                  <div class="mask rgba-white-slight"></div>
-                </a>
-              </div>
-
-              <!-- Card content -->
-              <div class="card-body">
-
-                <div class="collapse-content">
-                  <!-- Text -->
-                  <p class="card-text text-justify comment more" style="font-size: 14px;">
-                    Some Testimonials from Students of Role Foundation Nusa Dua
-                    3 things I learnt from today class :
-                    1. I can learn about how to be an effective, efficienct, smart people in every condition. How to be a people who always learn and learn no matter of what people said. 
-                    2. I can learn how to be a good leader for ourselves and other people. Not to be a boss but a real leader that help other people not to point them to do anything that I want, but we do anything together.
-                    3. I can learn how to manage our time with a positive thing, be an open minded people, think big and wide about my dream and focus to make it real, make a step to reach my dream, to be a good woman that have her own principe.
-
-                    3 things I am grateful for today :
-                    1. I am grateful because I have the best teacher, leader, friends like Ms Lidia and Ms Putu because they successful inspired me, open my mindset, believe with ourselves, and other things that motivated me to be a good people, leader, child, partner, friends for everyone.
-                    2. I'm grateful because I can find my solution, I get my own way, things to do to reach my dream. Maybe, before this lesson, I got some doubt/ not sure with my dreams, but after lesson, I have a spirit, more fight to plan my dreams from now.
-                    3. I'm grateful because God always in my heart and my soul. He is a good father to me when I'm weak. He strengthen me, hug me when I'm sad, crying through my family, friends, teacher, etc. When I prayed, maybe not today I got answer from Him, but I'm grateful for Him because He always listened me no matter what happens in my life and Ms Lidia said that you must depends on God hands, always praying in any condition.
-                    Thank you Ms Putu and Ms Lidia for the lesson.
-                  </p>
-                </div>
-              </div>
-
+              $check_rowsArticle = mysqli_num_rows($queryArticle);
+          ?>
+          <? if(empty($check_rowsArticle)):?>
+            <div class="alert alert-warning d-block mx-auto" role="alert">
+              <span>Sorry, article doesn't exist for now</span> 
             </div>
-          <!-- Card -->
-        </div>
-        <div class="col-lg-4">
+          <? elseif($check_rowsArticle == 1):?>
+            <div class="col-lg-4"></div>
+            <?
+              while($rowArticle = mysqli_fetch_array($queryArticle)){ $title = str_replace(' ', '-', $rowArticle['title']);?>
+              <div class="col-lg-4 col-md-6 mb-2">
+                <!-- Card -->
+                <div class="card shadow card-width card-margin">
+                  <!-- Card content -->
+                  <div class="card-body d-flex flex-row">
+                    <!-- Content -->
+                    <div>
+                      <!-- Title -->
+                      <h5 class="card-title font-weight-bold mb-2"><a href="blog.php?article=<?=$title?>" style="color:black;" target="_blank"><?= $rowArticle['title']?></a></h5>
+                      <!-- Subtitle -->
+                      <span class="card-text" style="color: grey; font-size: 13px;"><i class="fas fa-user pr-2"></i> <?= $rowArticle['author']?></span>
+                      <span class="card-text ml-2" style="color: grey; font-size: 13px;"><i class="far fa-calendar-alt pr-2"></i><?= date('d/m/Y', strtotime($rowArticle['date']))?></span>
+                    </div>
+                  </div>
+                  <!-- Card image -->
+                  <div class="view overlay">
+                    <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                    <a href="#!">
+                      <div class="mask rgba-white-slight"></div>
+                    </a>
+                  </div>
+                  <!-- Card content -->
+                  <div class="card-body">
+                    <div class="collapse-content">
+                      <!-- Text -->
+                      <p class="card-text text-justify comment more" style="font-size: 14px;">
+                        <?
+                            $tagsArticle = strip_tags($rowArticle['description']);
+                           
+                            $displayDesc = substr($tagsArticle, 0, 59);
+                        ?>
+                        <?= $displayDesc .' ...'?> <span><a href="blog.php?article=<?=$title?>" target="_blank">Readmore</a></span>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              <!-- Card -->
+            </div>
+          <?}?>
+          <div class="col-lg-4"></div>
+          <? else:?>
+            <? if($check_rowsArticle == 2):?>
+              <?while($rowArticle = mysqli_fetch_array($queryArticle)){ $title = str_replace(' ', '-', $rowArticle['title']);?>
+                  <div class="col-lg-3 col-md-3 col-12 d-block mr-2">
+                    <div class="card shadow card-width">
+                      <!-- Card content -->
+                      <div class="card-body d-flex flex-row">
+                        <!-- Content -->
+                        <div>
+                          <!-- Title -->
+                          <h5 class="card-title font-weight-bold mb-2"><a href="blog.php?article=<?=$title?>" style="color:black;" target="_blank"><?= $rowArticle['title']?></a></h5>
+                          <!-- Subtitle -->
+                          <span class="card-text" style="color: grey; font-size: 13px;"><i class="fas fa-user pr-2"></i> <?= $rowArticle['author']?></span>
+                          <span class="card-text ml-2" style="color: grey; font-size: 13px;"><i class="far fa-calendar-alt pr-2"></i><?= date('d/m/Y', strtotime($rowArticle['date']))?></span>
+                        </div>
+                      </div>
+                      <!-- Card image -->
+                      <div class="view overlay">
+                        <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                        <a href="#!">
+                          <div class="mask rgba-white-slight"></div>
+                        </a>
+                      </div>
+                      <!-- Card content -->
+                      <div class="card-body">
+                        <div class="collapse-content">
+                          <!-- Text -->
+                          <p class="card-text text-justify comment more" style="font-size: 14px;">
+                            <?
+                                $tagsArticle = strip_tags($rowArticle['description']);
+                               
+                                $displayDesc = substr($tagsArticle, 0, 59);
+                            ?>
+                            <?= $displayDesc .' ...'?> <span><a href="blog.php?article=<?=$title?>" target="_blank">Readmore</a></span>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+              <?}?>
+            <? else:?>
+              <div class="owl-carousel owl-theme d-block mx-auto" id="article">
+                <?while($rowArticle = mysqli_fetch_array($queryArticle)){$title = str_replace(' ', '-', $rowArticle['title']);?>
+                    <div class="item">
+                        <!-- Card -->
+                        <div class="card shadow card-width">
+                          <!-- Card content -->
+                          <div class="card-body d-flex flex-row">
+                            <!-- Content -->
+                            <div>
+                              <!-- Title -->
 
-        </div>
-        
+                              <h5 class="card-title font-weight-bold mb-2"><a href="blog.php?article=<?=$title?>" style="color:black;" target="_blank"><?= $rowArticle['title']?></a></h5>
+                              <!-- Subtitle -->
+                              <span class="card-text" style="color: grey; font-size: 13px;"><i class="fas fa-user pr-2"></i> <?= $rowArticle['author']?></span>
+                              <span class="card-text ml-2" style="color: grey; font-size: 13px;"><i class="far fa-calendar-alt pr-2"></i><?= date('d/m/Y', strtotime($rowArticle['date']))?></span>
+                            </div>
+                          </div>
+                          <!-- Card image -->
+                          <div class="view overlay">
+                            <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                            <a href="#!">
+                              <div class="mask rgba-white-slight"></div>
+                            </a>
+                          </div>
+                          <!-- Card content -->
+                          <div class="card-body">
+                            <div class="collapse-content">
+                              <!-- Text -->
+                              <p class="card-text text-justify comment more" style="font-size: 14px;">
+                                <?
+                                    $tagsArticle = strip_tags($rowArticle['description']);
+                                    
+                                    $displayDesc = substr($tagsArticle, 0, 59);
+                                ?>
+                                <?= $displayDesc .' ...'?> <span><a href="blog.php?article=<?=$title?>" target="_blank">Readmore</a></span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                <?}?>
+            </div>
+            <? endif;?>
+          <? endif;?>
+         
       </div>
     </div>
   </section>
+  
+  <!-- Our Client Section -->
+  <section class="page-section" id="our-client">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0">Our Client</h2>
+          <hr class="divider my-4">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <? 
+              $sqlCompany        = "SELECT * FROM company WHERE status='1' ORDER BY name_company ASC";
+              $queryCompany      = mysqli_query($db,$sqlCompany);
 
+              $check_rowsCompany = mysqli_num_rows($queryCompany);
+          ?>
+          <? if(empty($check_rowsCompany)):?>
+            <div class="alert alert-warning d-block mx-auto" role="alert">
+              <span>Sorry, article doesn't exist for now</span> 
+            </div>
+          <? else:?>
+              <div class="col-md-12">
+                <div class="p-2" style="text-align:center">
+              <? while($rowCompany = mysqli_fetch_array($queryCompany)){?>
+                  <img class="img-fluid ml-2 mb-3" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/company/<?= $rowCompany['url_img_company']?>" alt="<?= $rowCompany['name_company']?>" width="92">
+              <?}?>
+                </div>
+              </div>
+          <? endif;?>
+         
+      </div>
+    </div>
+  </section>
+  <!-- end section -->
 
+  <!-- Testimoni Section -->
+  <section class="page-section bg-primary" id="testimonial">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8 text-center">
+          <h2 class="mt-0 text-light">Testimonial</h2>
+          <hr class="divider light my-4">
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="row">
+          <? 
+              $sqlTestimonial        = "SELECT * FROM testimonial WHERE status='1' ORDER BY id DESC LIMIT 3";
+              $queryTestimonial      = mysqli_query($db,$sqlTestimonial);
+
+              $check_rowsTestimonial = mysqli_num_rows($queryTestimonial);
+          ?>
+          <? if(empty($check_rowsTestimonial)):?>
+            <div class="alert alert-warning d-block mx-auto" role="alert">
+              <span>Sorry, article doesn't exist for now</span> 
+            </div>
+          <? else:?>
+                <? while($rowTestimonial = mysqli_fetch_array($queryTestimonial)){?>
+                  <div class="col-lg-4 col-md-12 mb-lg-0 mb-4">
+                    <!--Card-->
+                    <div class="card testimonial-card">
+                      <!--Background color-->
+                      <div class="card-up info-color"></div>
+                      <!--Avatar-->
+                      <div class="avatar mx-auto white mt-3">
+                        <img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/testimonial/<?= $rowTestimonial['url_img_profile']?>" alt="<?=$rowTestimonial['name']?>" class="img-fluid testimoni-ava">
+                      </div>
+                      <div class="card-body">
+                        <!--Name-->
+                        <h6 class="font-weight-bold mb-2 text-center"><?= $rowTestimonial['name']?></h6>
+                        <p class="text-center" style="font-size:12.5px;color:grey;"><?=$rowTestimonial['position']?> , <?= $rowTestimonial['company']?></p>
+                        <hr>
+                        <!--Quotation-->
+                        <p style="color:grey"><i class="fas fa-quote-left pr-2"></i><span class="mt-2"><?= $rowTestimonial['testimoni']?></span></p>
+                      </div>
+                    </div>
+                </div>
+                <?}?>
+          <? endif;?>
+      </div>
+    </div>
+  </section>
+  <!-- end section -->
 
   <!-- Contact Section -->
   <section class="page-section page-section-contact" id="contact">
@@ -309,6 +451,8 @@
 
   <!-- MAIN CONTENT -->
 
-  <? include('template/footer.php') ?>
-
+  <? 
+    include('template/footer.php');
+    include('template/javascript.php'); 
+  ?>
   

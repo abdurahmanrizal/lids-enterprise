@@ -65,6 +65,26 @@
 .post-title {
   font-size: 2.125rem;
 }
+#article{
+  margin-left: 2.8rem;
+}
+#article .owl-prev{
+  left: 6rem !important;
+}
+#copy:hover{
+  cursor: pointer;
+}
+
+.card-margin{
+  margin-left: 2rem !important;
+}
+
+.testimoni-ava{
+  width: 95px;
+  height: 95px;
+  border: 2px solid#edf1f1;
+  border-radius: 50%;
+}
  /* Small devices (landscape phones, 576px and up) */
 @media (min-width: 360px) {
   .owl-prev,
@@ -81,6 +101,10 @@
     right: -1rem !important ;
   }
 
+  .tag-line {
+    font-size: 9.5px!important;
+  }
+
   header.masthead h1 {
     font-size: 1.75rem !important;
   }
@@ -90,12 +114,74 @@
     width: 18rem !important;
   }
   
-  .help-margin {
+  /* .help-margin {
 
     margin-left : 2rem !important;
 
+  } */
+  .card-margin{
+    margin-left: 1.5rem !important;
   }
 
+  #article{
+    margin-left: -0.3rem !important;
+  }
+
+  #article .owl-stage-outer {
+    margin-left : 2.8rem !important;
+  }
+
+  #article .owl-prev,
+  .owl-next {
+    position: absolute;
+    top: 51%;
+    transform: translateY(-50%);
+  }
+
+  #article .owl-prev{
+    left: 2rem !important;
+    color: black !important; 
+    /* top: 51% !important; */
+  }
+
+  #article .owl-next{
+    right: 0.9rem !important;
+    color: black !important; 
+    margin-top: 0.5rem;
+  }
+
+
+
+}
+@media(height: 667px){
+  #article .owl-next{
+    right: 1.8rem !important;
+    color: black !important; 
+    margin-top: 0.5rem;
+  }
+  .card-margin{
+    margin-left: 2rem !important;
+  }
+}
+@media(height: 740px){
+  #article .owl-next{
+    right: 0.9rem !important;
+    color: black !important; 
+    margin-top: 0.5rem;
+  }
+  .card-margin{
+    margin-left: 1.5rem !important;
+  }
+}
+@media(height: 736px){
+  #event-3 .owl-next{
+    right: -0.5rem !important;
+  }
+}
+@media(height: 896px){
+  #event-3 .owl-next{
+    right: -0.5rem !important;
+  }
 }
 @media (min-width: 400px) {
   .owl-prev,
@@ -105,13 +191,15 @@
     transform: translateY(-50%);
   }
   .owl-prev {
-    left: -1rem !important;
+    left: 0.5rem !important;
   }
   
   .owl-next {
-    right: -1rem !important ;
+    right: 0.5rem !important ;
   }
-
+  .tag-line {
+    font-size: 11px!important;
+  }
   header.masthead h1 {
     font-size: 1.75rem !important;
   }
@@ -126,6 +214,29 @@
     margin-left : 3rem !important;
 
   }
+  #article {
+    margin-left: 0 !important;
+  }
+
+  .item{
+    margin-left: 1rem !important;
+  }
+
+  #article .owl-prev {
+
+    left: 4rem !important;
+    color:#f4623a !important;
+    margin-top: 0.5rem;
+  }
+
+  #article .owl-next {
+    right: 4.3rem !important;
+    color: #f4623a !important;
+    margin-top: 0.93rem;
+  }
+  .card-margin{
+    margin-left: 3rem !important;
+  }
 }
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
@@ -136,21 +247,33 @@
     transform: translateY(-50%);
   }
   .owl-prev {
-    left: -1rem ;
+    left: 2rem !important ;
   }
   
   .owl-next {
-    right: -1rem !important;
+    right: 1rem !important;
   }
 
   .tag-line {
-    font-size: 9.5px!important;
+    font-size: 15px!important;
   }
 
   .help-margin {
 
     margin-left : 12.5rem !important;
 
+  }
+  #article{
+    margin-left: 0 !important;
+    margin-right: 1rem;
+  }
+  #article .owl-prev{
+    left: 3rem !important;
+    margin-top: -0.16rem;
+  }
+  #article .owl-next{
+    right: 2.3rem !important;
+    margin-top: 0.16rem;
   }
   
 }
@@ -164,11 +287,13 @@
     transform: translateY(-50%);
   } 
   .owl-prev {
-    left: -1rem;
+    /* left: -1rem !important; */
+    left: 0.5rem !important;
   }
   
   .owl-next {
-    right: -1rem !important;
+    /* right: -1rem !important; */
+    right: 0.5rem !important;
   }
   .ml-life-coach {
 
@@ -189,7 +314,7 @@
   .owl-prev,
   .owl-next {
     position: absolute;
-    top: 50%;
+    top: 51%;
     transform: translateY(-50%);
   }
   
@@ -210,6 +335,24 @@
 
     margin-left : 0 !important;
 
+  }
+  #article{
+    margin-left: -3rem !important;
+  }
+
+  #article .owl-prev{
+    left: 8rem !important;
+    margin-top: 1rem;
+  }
+  #article .owl-next{
+    right: 2rem !important;
+    margin-top: 1rem;
+  }
+  .item{
+    margin-left: 0 !important;
+  }
+  .card-margin{
+    margin-left: 2rem !important;
   }
  
 

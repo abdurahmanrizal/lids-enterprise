@@ -45,11 +45,67 @@
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <form class="form-inline my-2 my-lg-0 ml-auto">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-success my-2 my-sm-0" type="submit">Search</button>
+        <form class="form-inline my-2 my-lg-0 ml-auto" id="form-search">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search Article ..." id="search" autocomplete="off">
+            <button class="btn btn-success my-2 my-sm-0" type="submit" id="search-submit">Search</button>
         </form>
     </div>
+   
   </div>
   
 </nav>
+</body>
+</html>
+  <!-- JQuery -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <!-- typeahead js -->
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script> -->
+  <script src="vendor/typeahead/typeahead.bundle.js"></script>
+  <script>
+    // search autocomplete typeahead js
+    $('#search').typeahead({
+        source: function(query, result)
+        {
+            $.ajax({
+                url:"model/search_article.php",
+                method:"POST",
+                data:{query:query},
+                dataType:"json",
+                success:function(data)
+                {
+                    if(data == 'not-found'){
+                      
+                      $('.dropdown-menu[role="listbox"]').html('<li class="text-center p-3">Article Not Found, Please Correct your Suggestions</li>');
+                      
+                      
+                    }else{
+                      result($.map(data, function(item){
+                        return item;
+                      }));
+                    }
+                    
+                }
+            })
+        },
+    });
+    // click search typeahead
+    $('#search-submit').on('click',function(e){
+        e.preventDefault();
+        var article       = $('#search').val();
+        var escapeArticle = article.replace(/ /g, '-');
+        
+        $.ajax({
+            url    : "blog.php",
+            type   : "POST",
+            data   : {article:article},
+            success:function(data){ 
+                window.location.href="http://<?= $_SERVER['SERVER_NAME']?>/lids/blog.php?article="+escapeArticle
+            }
+        });
+    });
+  </script>
+    
+
+
+
+
