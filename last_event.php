@@ -156,7 +156,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-jul">
                                 <? while($rowEventJuly = mysqli_fetch_array($queryEventJuly)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventJuly['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventJuly['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -176,7 +176,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-aug">
                                 <? while($rowEventAugust = mysqli_fetch_array($queryEventAugust)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventAugust['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventAugust['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -196,7 +196,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-sep">
                                 <? while($rowEventSeptember = mysqli_fetch_array($queryEventSeptember)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventSeptember['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventSeptember['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -216,7 +216,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-oct">
                                 <? while($rowEventOctober = mysqli_fetch_array($queryEventOctober)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventOctober['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventOctober['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -236,7 +236,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-nov">
                                 <? while($rowEventNovember = mysqli_fetch_array($queryEventNovember)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventNovember['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventNovember['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -256,7 +256,7 @@
                             <? else : ?>
                                 <div class="owl-carousel owl-theme text-center p-2 slide-carousel-month" id="slide-carousel-des">
                                 <? while($rowEventDecember = mysqli_fetch_array($queryEventDecember)){ ?>
-                                    <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventDecember['url_img_event']?>" alt="Owl Image"></div>
+                                    <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEventDecember['url_img_event']?>" alt="Owl Image"></div>
                                 <? } ?>
                                 </div>
                             <? endif;?>
@@ -296,19 +296,20 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <?
-                                $sqlNewArticle   = "SELECT * FROM blog WHERE YEAR(date) = date('Y') AND status='1'";
-                                $queryNewArticle = mysqli_query($db,$sqlNewArticle);
+                                $year                = date('Y');
+                                $sqlNewArticle       = "SELECT * FROM blog WHERE YEAR(date) = '$year' AND status='1'";
+                                $queryNewArticle     = mysqli_query($db,$sqlNewArticle);
                                 while($rowNewArticle = mysqli_fetch_array($queryNewArticle)){
-
-                                $word = str_word_count(strip_tags($rowNewArticle['description']));
-                                $m = floor($word / 200);
-                                $est = $m . ' minute';
+                                $escapeStringArticle = str_replace(' ', '-', $rowNewArticle['title']);
+                                $word                = str_word_count(strip_tags($rowNewArticle['description']));
+                                $m                   = floor($word / 200);
+                                $est                 = $m . ' minute';
                             ?>
 
-                                <a class="list-group-item list-group-item-action flex-column align-items-start" href="blog.php?id=<?=$rowNewArticle['ID']?>">
+                                <a class="list-group-item list-group-item-action flex-column align-items-start" href="blog.php?article=<?= $escapeStringArticle ?>">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img class="rounded mr-3 float-left" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
+                                            <img class="rounded mr-3 float-left" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
                                             <h6 class="mb-1"><?= $rowNewArticle['title']?></h6>
                                             <small class="text-secondary"><?= date('d M Y', strtotime($rowNewArticle['date']))?> : <?= $est ?></small>
                                         </div>

@@ -29,9 +29,9 @@
                     <div>
                         <div class="mb-3">
                             <? if($readArticle['avatar'] == NULL) :?>
-                                <img class="rounded-circle border mr-1" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/images/faces/user.png" alt="author" width="32" height="32">
+                                <img class="rounded-circle border mr-1" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/images/faces/user.png" alt="author" width="32" height="32">
                             <? else : ?>
-                                <img class="rounded-circle border mr-1" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/profiles/<?=$readArticle['avatar']?>" alt="author" width="32" height="32">
+                                <img class="rounded-circle border mr-1" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/profiles/<?=$readArticle['avatar']?>" alt="author" width="32" height="32">
                             <? endif;?>
                             <small class="align-middle text-dark"><?= $readArticle['author']?></small>
                             <!-- <a class="align-middle text-dark" href=""><?= $readArticle['author']?></a> -->
@@ -68,19 +68,20 @@
                         </div>
                         <div class="list-group list-group-flush">
                             <?
-                                $sqlNewArticle   = "SELECT * FROM blog WHERE YEAR(date) = date('Y') AND status='1' LIMIT 4";
-                                $queryNewArticle = mysqli_query($db,$sqlNewArticle);
-                                while($rowNewArticle = mysqli_fetch_array($queryNewArticle)){
-                                $strip_title = str_replace(' ', '-', $rowNewArticle['title']);
-                                $word = str_word_count(strip_tags($rowNewArticle['description']));
-                                $m = floor($word / 200);
-                                $est = $m . ' minute';
+                                 $year                = date('Y');
+                                 $sqlNewArticle       = "SELECT * FROM blog WHERE YEAR(date) = '$year' AND status='1' LIMIT 4";
+                                 $queryNewArticle     = mysqli_query($db,$sqlNewArticle);
+                                 while($rowNewArticle = mysqli_fetch_array($queryNewArticle)){
+                                 $strip_title         = str_replace(' ', '-', $rowNewArticle['title']);
+                                 $word                = str_word_count(strip_tags($rowNewArticle['description']));
+                                 $m                   = floor($word / 200);
+                                 $est                 = $m . ' minute';
                             ?>
 
                                 <a class="list-group-item list-group-item-action flex-column align-items-start" href="blog.php?article=<?=$strip_title?>">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img class="rounded mr-3 float-left" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
+                                            <img class="rounded mr-3 float-left" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
                                             <h6 class="mb-1"><?= $rowNewArticle['title']?></h6>
                                             <small class="text-secondary"><?= date('d M Y', strtotime($rowNewArticle['date']))?> : <?= $est ?></small>
                                         </div>
@@ -98,11 +99,12 @@
                     </div>
                     <div class="owl-carousel owl-theme text-center p-2" id="slide-coming-event">
                         <?
-                            $sqlComingEvents   = "SELECT url_img_event FROM events WHERE YEAR(date) = date('Y') AND status='1'";
+                            $year              = date('Y');
+                            $sqlComingEvents   = "SELECT url_img_event FROM events WHERE YEAR(date) = '$year' AND status='1'";
                             $queryComingEvents = mysqli_query($db,$sqlComingEvents);
 
-                            while($rowComingEvents = mysqli_fetch_array($queryComingEvents)){?>
-                            <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowComingEvents['url_img_event']?>" alt="Owl Image"></div>
+                        while($rowComingEvents = mysqli_fetch_array($queryComingEvents)){?>
+                            <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowComingEvents['url_img_event']?>" alt="Owl Image"></div>
                         <?}?>
                     </div>
                     </div>  

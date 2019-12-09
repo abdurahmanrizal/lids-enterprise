@@ -50,7 +50,7 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#about">About</a>
           </li>
-          <li class="nav-item dropdown dropdown-service">
+          <!-- <li class="nav-item dropdown dropdown-service">
             <a class="nav-link dropdown-toggle" href="#" id="navbarOurServices" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our services</a>
             <div class="dropdown-menu dropdown-menu-service" aria-labelledby="navbarOurServices">
               <a class="dropdown-item d-none" href="#services">Service</a>
@@ -62,6 +62,9 @@
               <div class="dropdown-divider"></div>
               <a class="dropdown-item" href="#">Financial Service</a>
             </div>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#services">Our services</a>
           </li>
           <li class="nav-item dropdown dropdown-event">
             <a class="nav-link  dropdown-toggle" href="#" id="navbarEvent" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Event</a>
@@ -83,27 +86,23 @@
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#testimonial">Testimonial</a>
           </li>
-          <li class="nav-item dropdown dropdown-partner">
+          <? 
+             $sqlOurPartner    = "SELECT ID,name,status FROM partner WHERE status='1' ORDER BY name ASC";
+             $queryOurPartner  = mysqli_query($db, $sqlOurPartner);
+
+             $countOurPartner  = mysqli_num_rows($queryOurPartner);
+          if(!empty($countOurPartner)) : ?>
+           <li class="nav-item dropdown dropdown-partner">
             <a class="nav-link dropdown-toggle" href="#" id="ourPartner" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Our Partner</a>
             <div class="dropdown-menu" aria-labelledby="ourPartner">
-                <?
-                    $sqlOurPartner    = "SELECT ID,name,status FROM partner WHERE status='1'";
-                    $queryOurPartner  = mysqli_query($db, $sqlOurPartner);
-
-                    $countOurPartner  = mysqli_num_rows($queryOurPartner);
-
-                if(empty($countOurPartner)) : ?>
-                <a class="dropdown-item" href="#">Our Partner Not Found</a>
-                <? else: ?>
                   <? while($rowPartner = mysqli_fetch_array($queryOurPartner)){ $escapeString=str_replace(' ','-', $rowPartner['name'])?>
-
                       <a class="dropdown-item" href="partner.php?link=<?=$escapeString?>"><?= $rowPartner['name']?></a>
                       <div class="dropdown-divider"></div>
-
                   <? } ?>
-                <? endif;?>
             </div>
           </li>
+          <? endif ; ?>
+         
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contact us</a>
           </li>

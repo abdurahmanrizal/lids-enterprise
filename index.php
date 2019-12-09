@@ -89,8 +89,9 @@
     <div class="container">
       <div class='row'>
         <? 
-            $sqlEvents   = "SELECT url_img_event FROM events WHERE YEAR(date) = date('Y') AND status='1'";
-            $queryEvents = mysqli_query($db,$sqlEvents);
+            $year         = date('Y');
+            $sqlEvents    = "SELECT url_img_event FROM events WHERE YEAR(date) = date('Y') AND status='1' ORDER BY ID DESC LIMIT 6";
+            $queryEvents  = mysqli_query($db,$sqlEvents);
 
             $numberEvents = mysqli_num_rows($queryEvents);
         if(empty($numberEvents)):?>
@@ -100,25 +101,25 @@
         <?elseif($numberEvents == 1) :?>
           <div class="col-lg-12 col-md-12 col-12">
             <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
-              <img class="img-fluid d-block mx-auto" src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image" width="300" height="auto">
+              <img class="img-fluid d-block mx-auto" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image" width="300" height="auto">
             <? } ?>
           </div>
         <? elseif($numberEvents == 2) : ?>
           <div class="owl-carousel owl-theme d-block mx-auto" id="event-2">
             <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
-                <div class="item"><img class="img-fluid d-block mx-auto" src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+                <div class="item"><img class="img-fluid d-block mx-auto" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
             <? } ?>
           </div>
         <? elseif($numberEvents == 3) : ?>
           <div class="owl-carousel owl-theme d-block mx-auto" id="event-3">
             <? while($rowEvents = mysqli_fetch_array($queryEvents)){?>
-                <div class="item"><img src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+                <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
             <? } ?>
           </div>
         <? else : ?>
           <div class="owl-carousel owl-theme text-center" id="event-4">
             <? while($rowEvents = mysqli_fetch_array($queryEvents)) {?>
-              <div class="item"><img src="http://localhost/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
+              <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowEvents['url_img_event']?>" alt="Owl Image"></div>
             <? }?>
           </div>
         <? endif;?>
@@ -143,8 +144,8 @@
         <? else : ?>
           <? while($rowGallery = mysqli_fetch_array($queryGallery)){?>
             <div class="col-lg-4 col-sm-6">
-              <a class="portfolio-box" href="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>">
-                <img class="img-fluid" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>" alt="photos gallery">
+              <a class="portfolio-box" href="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>">
+                <img class="img-fluid" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/gallerys/<?=$rowGallery['url_img_gallery']?>" alt="photos gallery">
                 <div class="portfolio-box-caption">
                   <div class="project-category text-white-50">
                     Category
@@ -206,7 +207,7 @@
                   </div>
                   <!-- Card image -->
                   <div class="view overlay">
-                    <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                    <img class="card-img-top rounded-0" src="https://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
                     <a href="#!">
                       <div class="mask rgba-white-slight"></div>
                     </a>
@@ -232,8 +233,9 @@
           <div class="col-lg-4"></div>
           <? else:?>
             <? if($check_rowsArticle == 2):?>
+              <div class="row help-row">
               <?while($rowArticle = mysqli_fetch_array($queryArticle)){ $title = str_replace(' ', '-', $rowArticle['title']);?>
-                  <div class="col-lg-3 col-md-3 col-12 d-block mr-2">
+                  <div class="col-lg-6 col-md-6 col-sm-6 d-block mb-2 card-margin">
                     <div class="card shadow card-width">
                       <!-- Card content -->
                       <div class="card-body d-flex flex-row">
@@ -248,7 +250,7 @@
                       </div>
                       <!-- Card image -->
                       <div class="view overlay">
-                        <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                        <img class="card-img-top rounded-0" src="https://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
                         <a href="#!">
                           <div class="mask rgba-white-slight"></div>
                         </a>
@@ -270,6 +272,7 @@
                     </div>
                   </div>
               <?}?>
+              </div>
             <? else:?>
               <div class="owl-carousel owl-theme d-block mx-auto" id="article">
                 <?while($rowArticle = mysqli_fetch_array($queryArticle)){$title = str_replace(' ', '-', $rowArticle['title']);?>
@@ -290,7 +293,7 @@
                           </div>
                           <!-- Card image -->
                           <div class="view overlay">
-                            <img class="card-img-top rounded-0" src="http://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
+                            <img class="card-img-top rounded-0" src="https://<?=$_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowArticle['url_img_blog']?>" alt="photo article">
                             <a href="#!">
                               <div class="mask rgba-white-slight"></div>
                             </a>
@@ -346,7 +349,7 @@
               <div class="col-md-12">
                 <div class="p-2" style="text-align:center">
               <? while($rowCompany = mysqli_fetch_array($queryCompany)){?>
-                  <img class="img-fluid ml-2 mb-3" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/company/<?= $rowCompany['url_img_company']?>" alt="<?= $rowCompany['name_company']?>" width="92">
+                  <img class="img-fluid ml-2 mb-3" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/company/<?= $rowCompany['url_img_company']?>" alt="<?= $rowCompany['name_company']?>" width="92">
               <?}?>
                 </div>
               </div>
@@ -388,7 +391,7 @@
                       <div class="card-up info-color"></div>
                       <!--Avatar-->
                       <div class="avatar mx-auto white mt-3">
-                        <img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/testimonial/<?= $rowTestimonial['url_img_profile']?>" alt="<?=$rowTestimonial['name']?>" class="img-fluid testimoni-ava">
+                        <img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/testimonial/<?= $rowTestimonial['url_img_profile']?>" alt="<?=$rowTestimonial['name']?>" class="img-fluid testimoni-ava">
                       </div>
                       <div class="card-body">
                         <!--Name-->
