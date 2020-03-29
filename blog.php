@@ -29,9 +29,9 @@
                     <div>
                         <div class="mb-3">
                             <? if($readArticle['avatar'] == NULL) :?>
-                                <img class="rounded-circle border mr-1" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/images/faces/user.png" alt="author" width="32" height="32">
+                                <img class="rounded-circle border mr-1" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/images/faces/user.png" alt="author" width="32" height="32">
                             <? else : ?>
-                                <img class="rounded-circle border mr-1" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/profiles/<?=$readArticle['avatar']?>" alt="author" width="32" height="32">
+                                <img class="rounded-circle border mr-1" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/profiles/<?=$readArticle['avatar']?>" alt="author" width="32" height="32">
                             <? endif;?>
                             <small class="align-middle text-dark"><?= $readArticle['author']?></small>
                             <!-- <a class="align-middle text-dark" href=""><?= $readArticle['author']?></a> -->
@@ -81,7 +81,7 @@
                                 <a class="list-group-item list-group-item-action flex-column align-items-start" href="blog.php?article=<?=$strip_title?>">
                                     <div class="row">
                                         <div class="col-12">
-                                            <img class="rounded mr-3 float-left" src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
+                                            <img class="rounded mr-3 float-left" src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/articles/<?=$rowNewArticle['url_img_blog']?>" alt="gambar-blog" width="70" height="70">
                                             <h6 class="mb-1"><?= $rowNewArticle['title']?></h6>
                                             <small class="text-secondary"><?= date('d M Y', strtotime($rowNewArticle['date']))?> : <?= $est ?></small>
                                         </div>
@@ -104,7 +104,7 @@
                             $queryComingEvents = mysqli_query($db,$sqlComingEvents);
 
                         while($rowComingEvents = mysqli_fetch_array($queryComingEvents)){?>
-                            <div class="item"><img src="https://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowComingEvents['url_img_event']?>" alt="Owl Image"></div>
+                            <div class="item"><img src="http://<?= $_SERVER['SERVER_NAME']?>/admin/assets/upload/events/<?=$rowComingEvents['url_img_event']?>" alt="Owl Image"></div>
                         <?}?>
                     </div>
                     </div>  
